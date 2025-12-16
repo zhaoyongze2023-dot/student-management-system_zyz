@@ -1,0 +1,38 @@
+spring:
+  application:
+    name: student-management-backend
+  
+  datasource:
+    url: jdbc:mysql://mysql-host:3306/student_db?useSSL=true&serverTimezone=UTC&characterEncoding=utf8&useUnicode=true&allowPublicKeyRetrieval=true
+    username: ${DB_USERNAME:root}
+    password: ${DB_PASSWORD:root}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      maximum-pool-size: 20
+      minimum-idle: 5
+      connection-timeout: 30000
+  
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: false
+  
+  redis:
+    host: ${REDIS_HOST:redis-host}
+    port: ${REDIS_PORT:6379}
+    password: ${REDIS_PASSWORD:}
+    database: 0
+
+jwt:
+  secret: ${JWT_SECRET:your-secret-key-here-change-it-in-production-environment-very-important}
+  expiration: 3600000
+
+server:
+  port: 8080
+  compression:
+    enabled: true
+
+logging:
+  level:
+    root: WARN
+    com.example.student: INFO

@@ -1,0 +1,36 @@
+spring:
+  application:
+    name: student-management-backend
+  
+  datasource:
+    url: jdbc:mysql://localhost:3306/student_db?useSSL=false&serverTimezone=UTC&characterEncoding=utf8&useUnicode=true&allowPublicKeyRetrieval=true
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 2
+  
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  
+  redis:
+    host: localhost
+    port: 6379
+    password: 
+    database: 0
+
+jwt:
+  secret: dev-secret-key-change-in-production
+  expiration: 3600000
+
+server:
+  port: 8080
+
+logging:
+  level:
+    root: INFO
+    com.example.student: DEBUG
+    org.springframework.security: DEBUG
